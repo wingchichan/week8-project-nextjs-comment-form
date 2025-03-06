@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <h1>Welcome to the new Instagram</h1>
       </header>
       <main>
+        <Link href="/posts">Your posts</Link>
         {/* shows all posts */}
         {/* click on individual post to go to post[id] page.js */}
         {/* add new post */}

@@ -1,5 +1,6 @@
 // page for all posts
 import pg from "pg";
+import Link from "next/link";
 
 export default async function AllPosts() {
   const db = new pg.Pool({ connectionString: process.env.DB_CONN });
@@ -12,7 +13,10 @@ export default async function AllPosts() {
   return (
     <div>
       {posts.map((post) => (
-        <li key={post.id}>{post.title}</li>
+        <div key={post.id}>
+          {/* ${post.id} ensures it takes you to the correct dynamic route depending on what the user clicks */}
+          <Link href={`/posts/${post.id}`}>{post.title}</Link>
+        </div>
       ))}
     </div>
   );
