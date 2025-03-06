@@ -1,6 +1,7 @@
 // page for individual post
 // need to see comments related to this post
 import pg from "pg";
+import Image from "next/image";
 
 export default async function Page({ params }) {
   const slug = await params;
@@ -12,6 +13,12 @@ export default async function Page({ params }) {
   return (
     <div>
       <h1>{singlePost.title}</h1>
+      <Image
+        height={300}
+        width={300}
+        alt={singlePost.title}
+        src={singlePost.image}
+      />
       <p>{singlePost.content}</p>
     </div>
   );
